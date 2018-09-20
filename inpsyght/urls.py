@@ -15,7 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
+from core.views import (
+	index,
+	landing_patients,
+	landing_agents,
+	)
 urlpatterns = [
-    path('admin/', admin.site.urls),
+	path('admin/', admin.site.urls),
+	path('', index, name='index'),
+	path('agent/', landing_agents, name='landing_agents'),
+	path('patient/', landing_patients, name='landing_patients'),
+
 ]
+
+if settings.DEBUG:
+	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
