@@ -1,0 +1,1 @@
+web: gunicorn inpsyght.wsgi --log-file -
