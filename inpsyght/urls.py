@@ -32,6 +32,8 @@ urlpatterns = [
 	path('thankyou/', thankyou_page, name='thankyou_page'),
 
 ]
+# CHanging the admin page header
+admin.site.site_header = 'Inpsyght Administration'
 
 if settings.DEBUG:
 	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
